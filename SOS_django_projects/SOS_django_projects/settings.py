@@ -104,11 +104,14 @@ EMAIL_HOST_PASSWORD = 'password'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'project_20',
+        'USER': 'django_user',
+        'PASSWORD': 'django_pass',
+        'HOST': 'database',
+        'PORT': '3306',
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/3.0/ref/settings/#auth-password-validators
@@ -189,5 +192,4 @@ LOGGING = {
         },
     },
 }
-
 
