@@ -1,0 +1,113 @@
+{% include "./Header.html"%}
+
+<div class="container">
+    <div class="modal-dialog">
+
+        <div class="modal-content">
+
+            <div class="modal-header text-center">
+                <h4 class="modal-title">Waste Collection Information</h4>
+            </div>
+
+            {% if form.message %}
+            <div class="alert {% if form.error %}alert-danger{% else %}alert-success{% endif %} alert-dismissible fade show"
+                 role="alert">
+
+                <strong>{% if form.error %}Error:{% else %}Success:{% endif %}</strong> {{form.message}}
+
+                <button type="button" class="close" data-dismiss="alert">
+                    <span>&times;</span>
+                </button>
+
+            </div>
+            {% endif %}
+
+            <form method="POST">
+
+                <input type="hidden" name="id" value="{{form.id}}">
+
+                <div class="modal-body">
+
+                    <div class="form-group row">
+                        <label class="col-lg-3 form-control-label">Collection ID *</label>
+                        <div class="col-lg-9">
+                            <input class="form-control" type="text" name="collectionId"
+                                   value="{{form.collection_id}}">
+                            <span style="color:red;">{{form.input_error.collection_id}}</span>
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label class="col-lg-3 form-control-label">Vehicle ID *</label>
+                        <div class="col-lg-9">
+                            <input class="form-control" type="text" name="vehicleId"
+                                   value="{{form.vehicle_id}}">
+                            <span style="color:red;">{{form.input_error.vehicle_id}}</span>
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label class="col-lg-3 form-control-label">Driver ID *</label>
+                        <div class="col-lg-9">
+                            <input class="form-control" type="text" name="driverId"
+                                   value="{{form.driver_id}}">
+                            <span style="color:red;">{{form.input_error.driver_id}}</span>
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label class="col-lg-3 form-control-label">Collection Time *</label>
+                        <div class="col-lg-9">
+                            <input class="form-control"
+                                   type="datetime-local"
+                                   name="collectionTime"
+                                   value="{{form.collection_time}}">
+                            <span style="color:red;">{{form.input_error.collection_time}}</span>
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label class="col-lg-3 form-control-label">Route *</label>
+                        <div class="col-lg-9">
+                            <input class="form-control"
+                                   type="text"
+                                   name="route"
+                                   value="{{form.route}}">
+                            <span style="color:red;">{{form.input_error.route}}</span>
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+
+                        <div class="offset-lg-3 col-lg-9">
+
+                            <button type="submit" class="btn btn-primary">
+                                <i class="fas fa-save"></i> Save
+                            </button>
+
+                            <a href="/ORS/WasteCollectionList"
+                               class="btn btn-secondary">
+                                <i class="fas fa-list"></i> List
+                            </a>
+
+                            {% if form.id > 0 %}
+                            <a href="/ORS/WasteCollectionList/delete/{{form.id}}"
+                               class="btn btn-danger">
+                                <i class="fas fa-trash"></i> Delete
+                            </a>
+                            {% endif %}
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+</div>
+
+{% include "./Footer.html"%}
