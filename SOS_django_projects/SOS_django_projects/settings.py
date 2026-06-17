@@ -96,8 +96,8 @@ EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_USE_TLS = True
 EMAIL_PORT = 587
-EMAIL_HOST_USER = 'abc@gmail.com'
-EMAIL_HOST_PASSWORD = 'password'
+EMAIL_HOST_USER = 'samriddhichoukade.tech@gmail.com'
+EMAIL_HOST_PASSWORD = 'veqq cart vxar hbdl'
 
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
