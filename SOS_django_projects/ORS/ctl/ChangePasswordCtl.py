@@ -53,7 +53,7 @@ class ChangePasswordCtl(BaseCtl):
         msg = EmailMessage()
         msg.to = [user.login]
         msg.subject = "Password Changed Successfully"
-        msg.text = EmailBuilder.change_password({"firstName": user.firstName, "login": user.login, "password": self.form.get("newPassword")})
+        msg.text = EmailBuilder.change_password({"first_name": user.first_name, "login": user.login, "password": self.form.get("newPassword")})
         EmailService.send(msg)
         
         return render(request, self.get_template(), {"form": self.form})
